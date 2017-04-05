@@ -33,8 +33,8 @@ SECRET_KEY = config('SECRET_KEY')
 #DEBUG = True
 DEBUG = config('DEBUG', default=False, cast=bool) ## False é o padrão se não existir 
 
-#ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
+#ALLOWED_HOSTS = []
 
 DEFAULT_FROM_EMAIL = 'contato@eventex.com.br'
 
