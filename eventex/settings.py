@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
-from decouple import config
+from decouple import config, Csv
 from dj_database_url import parse as dburl
 
 from email.policy import default
@@ -33,8 +33,10 @@ SECRET_KEY = config('SECRET_KEY')
 #DEBUG = True
 DEBUG = config('DEBUG', default=False, cast=bool) ## False é o padrão se não existir 
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
+#ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
+ALLOWED_HOSTS = []
 
+DEFAULT_FROM_EMAIL = 'contato@eventex.com.br'
 
 # Application definition
 
