@@ -135,6 +135,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+## para DEBUG=TRUE
 STATIC_URL = '/static/'
+
+## para DEBUG=FALSE
 #Ederson: podemos colocar os arquivos staticos em outro servidor
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
