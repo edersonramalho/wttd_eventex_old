@@ -1,0 +1,14 @@
+Olá! {{ name }}
+
+Muito obrigado por se inscrever no Eventex.
+
+Dados:
+
+Nome: {{ name }}
+E-mail: {{ email }}
+CPF: {{ cpf }}
+Telefone: {{ phone }}
+
+att,
+--
+Teste

@@ -17,6 +17,8 @@ from dj_database_url import parse as dburl
 
 from email.policy import default
 from ctypes import cast
+from django.conf.global_settings import EMAIL_HOST, EMAIL_PORT, EMAIL_USE_TLS,\
+    EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -122,7 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 
@@ -142,3 +144,16 @@ STATIC_URL = '/static/'
 ## para DEBUG=FALSE
 #Ederson: podemos colocar os arquivos staticos em outro servidor
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+## Email (Ederson)
+
+##Opção para o e-mail enviado ser apresentado no terminal, e não para o SMTP
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+  
