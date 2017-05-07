@@ -24,3 +24,7 @@ class HomeTest(TestCase):
         """Must use  index.html"""
         #response = self.client.get('/')
         self.assertTemplateUsed(self.response, 'index.html')
+        
+    #teste para o link com o from de inscrição 
+    def test_subscription_link(self):
+        self.assertContains(self.response, 'href="/inscricao/"')
