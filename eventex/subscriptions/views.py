@@ -4,6 +4,7 @@ from eventex.subscriptions.forms import SubscriptionForm
 from django.http.response import HttpResponseRedirect, HttpResponse
 from django.core import mail
 from django.template.loader import render_to_string
+from django.contrib import messages
 
 def subscribe(request):
     if (request.method == 'POST'):
@@ -28,6 +29,8 @@ def subscribe(request):
                            body,
                            'contato@eventex.com.br',
                            ['contato@eventex.com.br',form.cleaned_data['email']])
+            
+            messages.success(request,'Inscrição realizada com sucesso!!')
             
             return HttpResponseRedirect('/inscricao/')
          
