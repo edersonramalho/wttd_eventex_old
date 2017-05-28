@@ -2,6 +2,10 @@
 
 Sistema de eventos
 
+[![Build Status](https://travis-ci.org/edersonramalho/wttd_eventex.svg?branch=master)](https://travis-ci.org/edersonramalho/wttd_eventex)
+
+[![Code Health](https://landscape.io/github/edersonramalho/wttd_eventex/master/landscape.svg?style=flat)](https://landscape.io/github/edersonramalho/wttd_eventex/master)
+
 ## Como desenvolver?
 
 1. Clonar o repositório.
