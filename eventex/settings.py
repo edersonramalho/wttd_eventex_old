@@ -27,11 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = '!dc*=*(o-9^a_kaxlcba7@y%lc8a0g+jnzdnx2z5(apb7ef*n)'
 SECRET_KEY = config('SECRET_KEY')
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool) ## False é o padrão se não existir 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
 DEFAULT_FROM_EMAIL =  'contato@eventex.com.br'
