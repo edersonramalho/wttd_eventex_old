@@ -4,8 +4,8 @@ from django.http.response import HttpResponseRedirect
 from django.core import mail
 from django.template.loader import render_to_string
 from django.contrib import messages
-from django.template.context_processors import request
-from lib2to3.fixes.fix_input import context
+#from django.template.context_processors import request
+#from lib2to3.fixes.fix_input import context
 from django.conf import settings
 
 def subscribe(request):
