@@ -15,17 +15,15 @@ def subscribe(request):
     else:
         return new(request)
         
-"""
-Função que cria a inscrição
-"""
+
+#Função que cria a inscrição
 def create(request):
     # Pegar dados do Form, como String
     form = SubscriptionForm(request.POST) 
     
-    """
-    se o form não for valido, ele aborta o resto
-    da função com o return
-    """
+    
+    #se o form não for valido, ele aborta o resto
+    #da função com o return    
     if not( form.is_valid() ):
         return render(request,'subscriptions/subscription_form.html',
                           {'form' : form }) 
@@ -42,9 +40,7 @@ def create(request):
     
     return HttpResponseRedirect('/inscricao/')
 
-"""
-Função que gera o form vazio
-"""        
+#Função que gera o form vazio        
 def new(request):    
     response = render(request,'subscriptions/subscription_form.html',
                       {'form' : SubscriptionForm() }) 
