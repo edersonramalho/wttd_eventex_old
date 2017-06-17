@@ -49,7 +49,9 @@ INSTALLED_APPS = [
     
     #apps criados no projeto
     'eventex.core',
-    'eventex.subscriptions',
+    #'eventex.subscriptions',
+    'eventex.subscriptions.apps.SubscriptionsConfig',#alterado para o Admin
+    
 ]
 
 MIDDLEWARE = [
