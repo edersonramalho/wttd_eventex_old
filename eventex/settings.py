@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     #apps de terceiros, no meio
-    'django_extensions',    
+    'test_without_migrations', #ferramenta de test do HB
+    'django_extensions',
     
     #apps criados no projeto
     'eventex.core',

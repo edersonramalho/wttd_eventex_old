@@ -2,7 +2,8 @@ from django.test import TestCase
 from django.core.handlers.exception import response_for_exception
 from eventex.subscriptions.forms import SubscriptionForm
 from django.core import mail
-from symbol import subscript
+#from symbol import subscript
+from eventex.subscriptions.models import Subscription
 
 class SubscribeGet(TestCase):
     
@@ -61,7 +62,10 @@ class SubscribePostvalid(TestCase):
     def test_send_subscribe_email(self):
         """ Teste de Envio de e-mail """
         #Verifica se foi enviado 1 e-mail, o este não envia e-mail
-        self.assertEqual(1, len(mail.outbox))        
+        self.assertEqual(1, len(mail.outbox))
+        
+    def test_save_subscription(self):
+        self.assertTrue(Subscription.objects.exists())        
         
 class SubscribePostInvalid(TestCase):
     def setUp(self):
@@ -81,6 +85,9 @@ class SubscribePostInvalid(TestCase):
     def test_form_has_errors(self):
         form = self.resp.context['form']
         self.assertTrue(form.errors)
+    
+    def test_dont_save_subscription(self):
+        self.assertFalse(Subscription.objects.exists())
 
 class SubscribeSuccessMessage(TestCase):
     def test_message(self):
