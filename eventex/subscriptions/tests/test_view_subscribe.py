@@ -1,8 +1,7 @@
 from django.test import TestCase
-from django.core.handlers.exception import response_for_exception
-from eventex.subscriptions.forms import SubscriptionForm
 from django.core import mail
-#from symbol import subscript
+#from django.core.handlers.exception import response_for_exception
+from eventex.subscriptions.forms import SubscriptionForm
 from eventex.subscriptions.models import Subscription
 
 class SubscribeGet(TestCase):
@@ -54,11 +53,15 @@ class SubscribePostvalid(TestCase):
         self.resp = self.client.post('/inscricao/', data)
         
     def test_post(self):
-        """ Teste de redirecionamento para /inscricao/ (POST) """
-        
-        #302 é o codi do redirecionamento
-        self.assertEqual(302, self.resp.status_code)
-        
+        """ Teste de redirecionamento para /inscricao/1/ (POST) """
+        self.assertRedirects(self.resp, '/inscricao/1/')
+    
+    #def test_post(self):
+    #    """ Teste de redirecionamento para /inscricao/ (POST) """
+    #    
+    #    #302 é o codi do redirecionamento
+    #    self.assertEqual(302, self.resp.status_code)
+    
     def test_send_subscribe_email(self):
         """ Teste de Envio de e-mail """
         #Verifica se foi enviado 1 e-mail, o este não envia e-mail
@@ -89,14 +92,5 @@ class SubscribePostInvalid(TestCase):
     def test_dont_save_subscription(self):
         self.assertFalse(Subscription.objects.exists())
 
-class SubscribeSuccessMessage(TestCase):
-    def test_message(self):
-        data = dict(name='Ederson da Silva Santos',
-                    cpf='01234567891',
-                    email='edersonramalho@gmail.com',
-                    phone='27-998310978')
-        response = self.client.post('/inscricao/', data, follow=True)
-        
-        self.assertContains(response, 'Inscrição realizada com sucesso!!')
 
 
